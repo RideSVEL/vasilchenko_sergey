@@ -2,7 +2,7 @@ package ua.khpi.oop.vasilchenko08;
 
 import java.util.Scanner;
 
-class Recruitment {
+public class Recruitment {
     private String firm;
     private String specialty;
     private String workingConditions;
@@ -12,7 +12,7 @@ class Recruitment {
     private int experience;
     private String education;
 
-    private boolean confirm = false;
+    private boolean confirm;
 
     public void setFirm(final String firm) {
         this.firm = firm;
@@ -34,23 +34,23 @@ class Recruitment {
         this.confirm = confirm;
     }
 
-    int getPayment() {
+    public int getPayment() {
         return payment;
     }
 
-    String getWorkingConditions() {
+    public String getWorkingConditions() {
         return workingConditions;
     }
 
-    String getSpecialty() {
+    public String getSpecialty() {
         return specialty;
     }
 
-    String getFirm() {
+    public String getFirm() {
         return firm;
     }
 
-    Recruitment() {
+    public Recruitment() {
         firm = null;
         specialty = null;
         workingConditions = null;
@@ -76,7 +76,7 @@ class Recruitment {
     void generateVacancy() {
         Scanner scan = new Scanner(System.in);
         Scanner scan2 = new Scanner(System.in);
-        int choose = 0;
+        int choose;
         System.out.print("\n¬ведите фирму: ");
         firm = scan.nextLine();
         System.out.print("\n¬ведите специальность: ");
