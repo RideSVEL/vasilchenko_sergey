@@ -13,7 +13,7 @@ import java.util.NoSuchElementException;
 import ua.khpi.oop.vasilchenko09.First.Recruitment;
 
 //обобщенный контейнер на основе связного списка
-public class LinkedContainer<T> implements Linked<T>, Serializable {
+public class LinkedContainer<T extends Recruitment> implements Linked<T>, Serializable {
     //конструктор инициализации
     public LinkedContainer() {
         head = new Node<>(null, null, tail);
@@ -142,13 +142,13 @@ public class LinkedContainer<T> implements Linked<T>, Serializable {
     @Override
     public void readAll() {
         try (BufferedReader br = new BufferedReader(new FileReader("save.txt"))) {
-            T temp;
+            Object temp;
             String line;
             line = br.readLine();
             int count = Integer.parseInt(line);
             for (int i = 0; i < count; i++) {
                 line = br.readLine();
-                temp = (T) line;
+                temp = line;
                 add((T) temp);
             }
         } catch (IOException ex) {
