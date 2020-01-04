@@ -1,5 +1,6 @@
-package ua.khpi.oop.vasilchenko09.First;
+package ua.khpi.oop.vasilchenko10.First;
 
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Recruitment {
@@ -12,7 +13,7 @@ public class Recruitment {
     private int experience;
     private String education;
 
-    private boolean confirm ;
+    private boolean confirm;
 
     public void setFirm(final String firm) {
         this.firm = firm;
@@ -96,31 +97,41 @@ public class Recruitment {
         System.out.print("\nВведите специальность: ");
         specialty = scan.nextLine();
         System.out.print("\nВведите условия работы: ");
+
         workingConditions = scan.nextLine();
         System.out.print("\nВведите оплату: ");
         payment = scan.nextInt();
         System.out.println("Желаете добавить дополнительные условия работы? 1 - Да. 0 - Нет: ");
-        choose = scan.nextInt();
-        while (true) {
-            if (choose == 1) {
-                System.out.print("\nВведите необходимую специальность: ");
-                needsSpeciality = scan2.nextLine();
-                System.out.print("\nНеобходимое образование: ");
-                education = scan2.nextLine();
-                System.out.print("\nеобходимый опыт работы: ");
-                experience = scan2.nextInt();
-                confirm = true;
-                break;
-            } else if (choose == 0) {
-                needsSpeciality = null;
-                experience = 0;
-                education = null;
-                break;
-            } else {
-                System.out.println("Ошибка! Повторите ввод: ");
+
+        boolean loop = true;
+        while (loop) {
+            choose = scan.nextInt();
+            switch (choose) {
+                case 1:
+                    System.out.print("\nВведите необходимую специальность: ");
+                    needsSpeciality = scan2.nextLine();
+                    System.out.print("\nНеобходимое образование: ");
+                    education = scan2.nextLine();
+                    System.out.print("\nНеобходимый опыт работы: ");
+                    experience = scan2.nextInt();
+                    confirm = true;
+                    loop = false;
+                    break;
+                case 0:
+                    needsSpeciality = null;
+                    experience = 0;
+                    education = null;
+                    loop = false;
+                    break;
+                default:
+                    System.out.println("Ошибка! Повторите ввод: ");
+                    break;
             }
         }
     }
+
+
+
 
     public void setExperience(final int experience) {
         this.experience = experience;
@@ -154,4 +165,23 @@ public class Recruitment {
     public String toString() {
         return show();
     }
+
+    public static final Comparator<Recruitment> compareByEducation = new Comparator<Recruitment>() {
+        @Override
+        public int compare(Recruitment o1, Recruitment o2) {
+            return o1.getEducation().compareTo(o2.getEducation());
+        }
+    };
+    public static final Comparator<Recruitment> compareByFirm = new Comparator<Recruitment>() {
+        @Override
+        public int compare(Recruitment o1, Recruitment o2) {
+            return o1.getFirm().compareTo(o2.getFirm());
+        }
+    };
+    public static final Comparator<Recruitment> compareBySpecialty = new Comparator<Recruitment>() {
+        @Override
+        public int compare(Recruitment o1, Recruitment o2) {
+            return o1.getSpecialty().compareTo(o2.getSpecialty());
+        }
+    };
 }

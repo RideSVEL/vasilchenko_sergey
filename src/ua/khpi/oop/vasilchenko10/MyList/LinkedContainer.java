@@ -1,4 +1,6 @@
-package ua.khpi.oop.vasilchenko09.MyList;
+package ua.khpi.oop.vasilchenko10.MyList;
+
+import ua.khpi.oop.vasilchenko10.First.Recruitment;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,8 +11,6 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-
-import ua.khpi.oop.vasilchenko09.First.Recruitment;
 
 //обобщенный контейнер на основе связного списка
 public class LinkedContainer<T extends Recruitment> implements Linked<T>, Serializable {
@@ -23,23 +23,25 @@ public class LinkedContainer<T extends Recruitment> implements Linked<T>, Serial
 
     @Override
     public Iterator<T> iterator() {
-        return new Iterator<>() {
-            private int position = 0;
+        return new IteratorList();
+    }
 
-            @Override
-            public boolean hasNext() {
-                return position < size;
-            }
+    public class IteratorList implements Iterator<T> {
+        private int position = 0;
 
-            @Override
-            public T next() {
-                if (this.hasNext()) {
-                    return getElementByIndex(position++);
-                } else {
-                    throw new NoSuchElementException();
-                }
+        @Override
+        public boolean hasNext() {
+            return position < size;
+        }
+
+        @Override
+        public T next() {
+            if (this.hasNext()) {
+                return getElementByIndex(position++);
+            } else {
+                throw new NoSuchElementException();
             }
-        };
+        }
     }
 
     @Override
@@ -90,10 +92,11 @@ public class LinkedContainer<T extends Recruitment> implements Linked<T>, Serial
         addLast(obj);
     }
 
+
     @Override
     public void saveAll() {
         try {
-            File file = new File("save.txt");
+            File file = new File("save1.txt");
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -112,7 +115,7 @@ public class LinkedContainer<T extends Recruitment> implements Linked<T>, Serial
     @Override
     public void saveRec() {
         try {
-            File file = new File("save.txt");
+            File file = new File("save1.txt");
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -141,7 +144,7 @@ public class LinkedContainer<T extends Recruitment> implements Linked<T>, Serial
 
     @Override
     public void readAll() {
-        try (BufferedReader br = new BufferedReader(new FileReader("save.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("save1.txt"))) {
             Object temp;
             String line;
             line = br.readLine();
@@ -158,7 +161,7 @@ public class LinkedContainer<T extends Recruitment> implements Linked<T>, Serial
 
     @Override
     public void readRec() {
-        try (BufferedReader br = new BufferedReader(new FileReader("save.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("save1.txt"))) {
             Recruitment temp = new Recruitment();
             String line;
             line = br.readLine();
@@ -204,14 +207,6 @@ public class LinkedContainer<T extends Recruitment> implements Linked<T>, Serial
     }
 
 
-//    // @Override
-//    public void saveSerializable(LinkedContainer<T> obj) throws IOException {
-//        FileOutputStream file = new FileOutputStream("save.data");
-//        ObjectOutputStream object = new ObjectOutputStream(file);
-//        object.writeObject(obj);
-//        object.close();
-//    }
-
     private Node<T> head; //первый элемент
     private Node<T> tail; //последний элемент
     private int size = 0; //размер списка
@@ -220,7 +215,7 @@ public class LinkedContainer<T extends Recruitment> implements Linked<T>, Serial
     @Override
     public void addLast(final T obj) {
         Node<T> prev = tail; //сохранение данных хвоста
-        prev.setCurrentElem(obj); //установка значения
+        prev.setCurrentElem((T) new Recruitment(obj)); //установка значения
         tail = new Node<>(null, prev, null); //изменение указателя хвоста
         prev.setNextElem(tail); //установка указателя на хвост
         size++; //увелечение размера списка
@@ -229,7 +224,7 @@ public class LinkedContainer<T extends Recruitment> implements Linked<T>, Serial
     @Override
     public void addFirst(final T obj) {
         Node<T> next = head;
-        next.setCurrentElem(obj);
+        next.setCurrentElem((T) new Recruitment(obj));
         head = new Node<>(null, null, next);
         next.setPrevElem(head);
         size++;
@@ -248,6 +243,7 @@ public class LinkedContainer<T extends Recruitment> implements Linked<T>, Serial
         }
         return target.getCurrentElem();
     }
+
 
     private Node<T> getNextElement(final Node<T> index) {
         return index.getNextElem();
