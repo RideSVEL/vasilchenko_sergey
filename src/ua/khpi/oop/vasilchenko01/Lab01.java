@@ -28,8 +28,8 @@ class Lab01 {
         final short TwoLastNumber = 0b100011;
         final short FourLastNumber = 022643;
         final int NumberJournal = 2;
-        final int ResultJournal = (NumberJournal-1)%26+1;
-        final char NumberOfSymbol = (char)ResultJournal+65;
+        final int ResultJournal = (NumberJournal - 1) % 26 + 1;
+        final char NumberOfSymbol = (char) ResultJournal + 65;
         //System.out.println(NumberOfSymbol);
         byte even = 0;
         byte odd = 0;
@@ -38,22 +38,22 @@ class Lab01 {
         String Second;
         //Function1(TwoLastNumber, even, odd);
         First = Integer.toString(BookNumber) + Long.toString(MobTelephone) + Integer.toString(TwoLastNumber)
-                + Integer.toString(FourLastNumber) + Integer.toString(NumberJournal) + Integer.toString(ResultJournal) + Integer.toString((int)NumberOfSymbol);
-        for (byte i = 0; i < First.length(); i++){
-            if(First.charAt(i)%2 == 0)
-            {
+                + Integer.toString(FourLastNumber) + Integer.toString(NumberJournal)
+                + Integer.toString(ResultJournal) + Integer.toString((int) NumberOfSymbol);
+        for (byte i = 0; i < First.length(); i++) {
+            if (First.charAt(i) % 2 == 0) {
                 even++;
-            }
-            else{
+            } else {
                 odd++;
             }
         }
 
         Second = Integer.toBinaryString(BookNumber) + Long.toBinaryString(MobTelephone) + Integer.toBinaryString(TwoLastNumber)
-                + Integer.toBinaryString(FourLastNumber) + Integer.toBinaryString(NumberJournal) + Integer.toBinaryString(ResultJournal) + Integer.toBinaryString((int)NumberOfSymbol);
+                + Integer.toBinaryString(FourLastNumber) + Integer.toBinaryString(NumberJournal) + Integer.toBinaryString(ResultJournal)
+                + Integer.toBinaryString((int) NumberOfSymbol);
 
-        for (byte i = 0; i < Second.length(); i++){
-            if(Second.charAt(i)%2 != 0)
+        for (byte i = 0; i < Second.length(); i++) {
+            if (Second.charAt(i) % 2 != 0)
                 ones++;
         }
         //Function1(FourLastNumber, even, odd)

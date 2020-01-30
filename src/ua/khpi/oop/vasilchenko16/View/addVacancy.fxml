@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="550.0" prefWidth="900.0" style="-fx-background-color: #FFF5EE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.khpi.oop.vasilchenko16.Controllers.AddVacancy">
+    <children>
+        <MenuBar prefHeight="32.0" prefWidth="900.0">
+            <menus>
+                <Menu fx:id="fileMenu" mnemonicParsing="false" text="File">
+                    <items>
+                  <MenuItem fx:id="backMenuItem" mnemonicParsing="false" text="Back" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="exitMenuItem" mnemonicParsing="false" text="Exit" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem fx:id="clearMenuItem" mnemonicParsing="false" text="Clear" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+      <Label layoutX="354.0" layoutY="46.0" text="ENTER THE DATA:">
+         <font>
+            <Font name="Impact" size="30.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="backImage" fitHeight="48.0" fitWidth="48.0" layoutX="27.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Assist/backbutton_104978.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="comanyField" layoutX="208.0" layoutY="107.0" prefHeight="31.0" prefWidth="484.0" promptText="Company name" />
+      <TextField fx:id="specialtyField" layoutX="208.0" layoutY="149.0" prefHeight="31.0" prefWidth="484.0" promptText="Specialty" />
+      <TextField fx:id="workoiongField" layoutX="208.0" layoutY="191.0" prefHeight="31.0" prefWidth="484.0" promptText="Working conditions" />
+      <TextField fx:id="paymentField" layoutX="208.0" layoutY="232.0" prefHeight="31.0" prefWidth="484.0" promptText="Payment" />
+      <RadioButton fx:id="yesRadioButton" layoutX="391.0" layoutY="325.0" mnemonicParsing="false" text="Yes" />
+      <RadioButton fx:id="noRadioButton" layoutX="458.0" layoutY="325.0" mnemonicParsing="false" text="No" />
+      <Label layoutX="314.0" layoutY="275.0" text="Additional Conditions:">
+         <font>
+            <Font name="Impact" size="30.0" />
+         </font>
+      </Label>
+      <Button fx:id="saveButton" layoutX="392.0" layoutY="488.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="116.0" text="Save" textFill="#383923">
+         <font>
+            <Font name="Forte" size="21.0" />
+         </font>
+      </Button>
+      <AnchorPane fx:id="additionalPane" layoutX="139.0" layoutY="346.0" prefHeight="137.0" prefWidth="639.0">
+         <children>
+            <TextField fx:id="needsSpecialtyField" layoutX="149.0" layoutY="14.0" prefHeight="31.0" prefWidth="341.0" promptText="Necessary specialty" />
+            <TextField fx:id="educationField" layoutX="149.0" layoutY="55.0" prefHeight="31.0" prefWidth="341.0" promptText="Education" />
+            <TextField fx:id="expirienceField" layoutX="149.0" layoutY="96.0" prefHeight="31.0" prefWidth="341.0" promptText="Expirience" />
+         </children>
+      </AnchorPane>
+    </children>
+</AnchorPane>
