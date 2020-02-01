@@ -1,8 +1,8 @@
 package ua.khpi.oop.vasilchenko16.Animation;
 
-import com.sun.javafx.scene.control.skin.ButtonSkin;
 import javafx.animation.FadeTransition;
 import javafx.scene.control.Button;
+import javafx.scene.control.skin.ButtonSkin;
 import javafx.util.Duration;
 
 

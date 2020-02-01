@@ -1,4 +1,5 @@
 package ua.khpi.oop.vasilchenko05;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -21,7 +22,7 @@ final class Functions {
 
 
     static void showString(final String str) {
-            System.out.print(str);
+        System.out.print(str);
     }
 
     private static String[] differentWords(final String str) {
@@ -50,7 +51,7 @@ final class Functions {
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter string: ");
         String str1;
-            str1 = scan.nextLine();
+        str1 = scan.nextLine();
         return str1;
     }
 
@@ -83,7 +84,7 @@ final class Functions {
             str1.append(str2[i]);
             str1.append(" ");
         }
-       str1.deleteCharAt(str1.length() - 1);
+        str1.deleteCharAt(str1.length() - 1);
         return str1.toString();
     }
 }
