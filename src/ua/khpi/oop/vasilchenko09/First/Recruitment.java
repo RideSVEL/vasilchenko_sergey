@@ -1,8 +1,9 @@
 package ua.khpi.oop.vasilchenko09.First;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Recruitment {
+public class Recruitment implements Serializable {
     private String firm;
     private String specialty;
     private String workingConditions;

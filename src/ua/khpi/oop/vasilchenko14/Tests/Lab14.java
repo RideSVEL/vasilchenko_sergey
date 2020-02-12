@@ -17,7 +17,7 @@ public class Lab14 {
 
         rec1.setPayment(2600);
         rec2.setPayment(3700);
-        for (int i = 0; i < 45000; i++) {
+        for (int i = 0; i < 10000; i++) {
             linkedContainer.add(rec1);
             linkedContainer.add(rec2);
         }

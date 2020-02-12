@@ -85,7 +85,7 @@ public class Treads {
         private void countHigherPayment() {
             int count = 0;
             for (int i = 0; i < linkedContainer.size(); i++) {
-                if (linkedContainer.getElementByIndex(i).getPayment() > HIGHER_PAYMENT) {
+                if (linkedContainer.getElementByIndex(i).getPayment() >= HIGHER_PAYMENT) {
                     count++;
                 }
             }

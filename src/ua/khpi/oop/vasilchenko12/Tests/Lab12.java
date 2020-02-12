@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class Lab12 {
     public static void main(String[] args) throws IOException {
-        if (args != null) {
+        if (args.length != 0) {
             if (args[0].equals("-auto")) {
                 Exe.auto();
             } else {

@@ -1,11 +1,6 @@
 package ua.khpi.oop.vasilchenko09.MyList;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.Serializable;
+import java.io.*;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -204,13 +199,13 @@ public class LinkedContainer<T extends Recruitment> implements Linked<T>, Serial
     }
 
 
-//    // @Override
-//    public void saveSerializable(LinkedContainer<T> obj) throws IOException {
-//        FileOutputStream file = new FileOutputStream("save.data");
-//        ObjectOutputStream object = new ObjectOutputStream(file);
-//        object.writeObject(obj);
-//        object.close();
-//    }
+    // @Override
+    public void saveSerializable(LinkedContainer<T> obj) throws IOException {
+        FileOutputStream file = new FileOutputStream("save.datas");
+        ObjectOutputStream object = new ObjectOutputStream(file);
+        object.writeObject(obj);
+        object.close();
+    }
 
     private Node<T> head; //первый элемент
     private Node<T> tail; //последний элемент
@@ -255,7 +250,7 @@ public class LinkedContainer<T extends Recruitment> implements Linked<T>, Serial
 
     // head -> null & tail -> null
     // null <- prevElem [head(t = null)] nextElem-> & <- prevElem [head(t = null)] nextElem -> null
-    private class Node<T> {
+    private class Node<T> implements Serializable{
         private T currentElem; //текущий
         private Node<T> prevElem; //предыдущий
         private Node<T> nextElem; //следущий

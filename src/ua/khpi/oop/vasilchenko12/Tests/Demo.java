@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 public class Demo {
     public static void main(String[] args) throws InputMismatchException, IOException {
         Lab12.main(new String[] {"-auto"});
-        Lab12.main(null);
+        Lab12.main(args);
 
 //        LinkedContainer<Recruitment> linkedContainer = new LinkedContainer<>();
 //        Recruitment recruitment = new Recruitment();
